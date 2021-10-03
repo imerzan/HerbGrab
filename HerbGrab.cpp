@@ -7,7 +7,7 @@ int main()
     // Setup random number generator
     std::random_device rd; // obtain a random number from hardware
     std::mt19937 gen(rd()); // seed the generator
-    std::uniform_int_distribution<> distr(35, 95); // define the range
+    std::uniform_int_distribution<> distr(20, 50); // define the range
     // Define structs
     INPUT down[1] = {};
     down[0].type = INPUT_MOUSE;
@@ -28,6 +28,7 @@ int main()
             SendInput(1, down, sizeof(down)); // Right Click Down
             Sleep(distr(gen)); // Randomized keydown delay
             SendInput(1, up, sizeof(up)); // Right Click Up
+            Sleep(distr(gen)); // Randomized keyup delay
         }
     }
 }
